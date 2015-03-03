@@ -6,15 +6,20 @@
 	<groupId>com.bta.twitter</groupId>
 	<artifactId>twitter-superPom</artifactId>
 	<packaging>pom</packaging>
-	<version>x.x-x-SNAPSHOT</version>
+	<version>x.x.x-SNAPSHOT</version>
 
 	<properties>
 		<!-- libs version -->
 		<org.springframework-version>4.1.5.RELEASE</org.springframework-version>
-		<org.aspectj-version>1.6.10</org.aspectj-version>		
+		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
-		
 	</properties>
+
+	<modules>
+		<module>twitter-services</module>
+		<module>twitter-services-rest</module>
+		<module>twitter-services-googleAppEngine</module>
+	</modules>
 
 	<dependencyManagement>
 		<dependencies>
