@@ -1,16 +1,22 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>com.bta.twitter</groupId>
-		<artifactId>twitter-superPom</artifactId>
-		<version>x.x.x-SNAPSHOT</version>
-	</parent>
-	<artifactId>twitter-parentPom</artifactId>
-	<packaging>pom</packaging>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
 
-	<modules>
-		<module>twitter-services-webapi</module>
-	</modules>
+    <artifactId>twitter-parentPom</artifactId>
+    <packaging>pom</packaging>
+    
+    <parent>
+        <artifactId>twitter-superPom</artifactId>
+        <groupId>com.bta.twitter</groupId>
+        <version>x.x-x-SNAPSHOT</version>
+    </parent>
+    
+    <modules>
+        <module>../twitter-services-rest</module>
+        <module>../twitter-services-googleAppEngine</module>
+    </modules>
 
 </project>
