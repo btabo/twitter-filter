@@ -45,12 +45,14 @@
             <version>1.9.18</version>
             <scope>test</scope>
         </dependency>
+        
+        <!-- Twitter Filter -->
         <dependency>
-            <groupId>com.google.appengine</groupId>
-            <artifactId>appengine-api-stubs</artifactId>
-            <version>1.9.18</version>
-            <scope>test</scope>
+            <groupId>com.bta.twitter</groupId>
+            <artifactId>twitter-services</artifactId>
+            <version>x.x.x-SNAPSHOT</version>
         </dependency>
+        
     </dependencies>
 
     <build>
