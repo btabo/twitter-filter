@@ -6,9 +6,9 @@
     <packaging>war</packaging>
 
 	<parent>
-        <artifactId>twitter-parentPom</artifactId>
+        <artifactId>twitter-superPom</artifactId>
         <groupId>com.bta.twitter</groupId>
-        <version>x.x-x-SNAPSHOT</version>
+        <version>x.x.x-SNAPSHOT</version>
     </parent>
     
     <properties>
