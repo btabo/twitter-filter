@@ -1,4 +1,6 @@
-package com.bta.twitter.data.jdo;
+package com.bta.twitter.component.bo;
+
+import com.bta.twitter.fmk.PMF;
 
 public class TweetDAO {
 

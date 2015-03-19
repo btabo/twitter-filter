@@ -1,4 +1,4 @@
-package com.bta.twitter;
+package com.bta.twitter.services.web.restcontrolers;
 
 import java.text.DateFormat;
 import java.util.Date;

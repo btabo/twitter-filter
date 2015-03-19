@@ -1,6 +1,7 @@
-package com.bta.twitter.data.jdo;
+package com.bta.twitter.component.bo;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.PersistenceCapable;
@@ -23,20 +24,24 @@ public class TweetBO {
 	private String user;
 	
 	@Persistent
-	private String rawJson;
-	
-	@Persistent
 	private String text;
 	
 	@Persistent
 	private Date date;
 	
+	@Persistent
+	private List<String> hashtags;
 	
-	public TweetBO(Long id, String user, String text, Date date, String rawJson){
+	@Persistent
+	private String rawJson;
+	
+	
+	public TweetBO(Long id, String user, String text, Date date, List<String> hashtags, String rawJson){
 		this.id = id;
 		this.user = user;
 		this.text = text;		
 		this.date = date;
+		this.hashtags = hashtags;
 		this.rawJson = rawJson;
 	}
 
@@ -86,6 +91,14 @@ public class TweetBO {
 
 	public void setText(String text) {
 		this.text = text;
+	}
+
+	public List<String> getHashtags() {
+		return hashtags;
+	}
+
+	public void setHashtags(List<String> hashtags) {
+		this.hashtags = hashtags;
 	}
 	
 }

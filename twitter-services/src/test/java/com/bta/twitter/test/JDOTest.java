@@ -1,5 +1,8 @@
 package com.bta.twitter.test;
 
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.logging.Logger;
 
@@ -11,8 +14,8 @@ import org.junit.Test;
 
 import twitter4j.TwitterObjectFactory;
 
-import com.bta.twitter.data.jdo.PMF;
-import com.bta.twitter.data.jdo.TweetBO;
+import com.bta.twitter.component.bo.TweetBO;
+import com.bta.twitter.fmk.PMF;
 import com.google.appengine.tools.development.testing.LocalDatastoreServiceTestConfig;
 import com.google.appengine.tools.development.testing.LocalServiceTestHelper;
 
@@ -42,6 +45,7 @@ public class JDOTest {
     			"someuser",
     			"salut la compagnie",
     			new Date(),
+    			null,
     			"{someJSON}"
     			);
 

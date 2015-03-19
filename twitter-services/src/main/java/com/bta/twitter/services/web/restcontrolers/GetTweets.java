@@ -1,4 +1,4 @@
-package com.bta.twitter;
+package com.bta.twitter.services.web.restcontrolers;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import javax.annotation.Resource;
 import javax.jdo.Query;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,14 +21,19 @@ import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 
-import com.bta.twitter.data.jdo.PMF;
-import com.bta.twitter.data.jdo.TweetBO;
+import com.bta.twitter.component.TwitterComponent;
+import com.bta.twitter.component.bo.TweetBO;
+import com.bta.twitter.fmk.PMF;
 import com.bta.twitter.fmk.TwitterUtils;
 
 @RestController
 public class GetTweets {
 	
 	private static final Logger log = Logger.getLogger(GetTweets.class.getName());
+	
+	@Resource
+	private TwitterComponent twitterComponent;
+	
 	
     @RequestMapping("/hello")
     public String hello(@RequestParam(value="name", required=false, defaultValue="World") String name) {
@@ -61,7 +67,7 @@ public class GetTweets {
 				List<Status> myTimeLine = twitter.getHomeTimeline(page);
 				for (Status status : myTimeLine){					
 					if (TwitterUtils.isInTimeFrame(status) ){						
-						result.add(mapToBo(status));
+						result.add(TwitterUtils.mapToBo(status));
 						log.info(status.getId() +
 								"/" + status.getCreatedAt().getTime() +
 								"/" + status.getUser().getName() + 
@@ -80,7 +86,7 @@ public class GetTweets {
 			
 		}
 		//log.info("############ RANK HASHTAGS : " + rankHashtag(result).toString());
-		PMF.get().getPersistenceManager().makePersistentAll(result);
+		//PMF.get().getPersistenceManager().makePersistentAll(result);
 		
 		return result;
     }
@@ -105,17 +111,12 @@ public class GetTweets {
     	return result;
     }
     
-    public TweetBO mapToBo(Status status){
-    	return new TweetBO(
-    			status.getId(), 
-    			status.getUser().getName(),
-    			status.getText(),
-    			status.getCreatedAt(),
-    			//TwitterObjectFactory.getRawJSON(status)
-    			"{SampleJSON}"
-    			);
-    }
     
+    @RequestMapping("/getTopTweets")
+    public List<TweetBO> getTopTweets() {
+    	return twitterComponent.getTopTweet();
+    }
+
     @RequestMapping("/getAllCache")
     public List<TweetBO> getAllCache() {    	
     	Query q = PMF.get().getPersistenceManager().newQuery(TweetBO.class);

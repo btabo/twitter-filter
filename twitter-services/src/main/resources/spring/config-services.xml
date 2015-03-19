@@ -12,5 +12,8 @@
         </property>
     </bean> -->
 
+	<bean id="com.bta.twitter.component.TwitterComponent" 
+		class="com.bta.twitter.component.impl.TwitterComponentImpl">
+    </bean>
     
 </beans>

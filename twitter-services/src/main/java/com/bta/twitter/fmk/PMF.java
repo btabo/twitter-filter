@@ -1,4 +1,4 @@
-package com.bta.twitter.data.jdo;
+package com.bta.twitter.fmk;
 
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManagerFactory;
