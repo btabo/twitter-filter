@@ -8,8 +8,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.logging.Logger;
 
-import javax.jdo.Query;
-
 import twitter4j.Paging;
 import twitter4j.QueryResult;
 import twitter4j.Status;
@@ -19,7 +17,6 @@ import twitter4j.TwitterFactory;
 
 import com.bta.twitter.component.TwitterComponent;
 import com.bta.twitter.component.bo.TweetBO;
-import com.bta.twitter.fmk.PMF;
 import com.bta.twitter.fmk.TwitterUtils;
 
 public class TwitterComponentImpl implements TwitterComponent {
